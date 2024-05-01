@@ -1,2 +1,2 @@
 # Fractals
-fractal project
+fractal project with SFML library
