@@ -5,7 +5,7 @@
 #include <Windows.h>
 #include <atlstr.h>
 #include <random>
-
+#include <cstdlib>
 
 
 
@@ -112,16 +112,24 @@ int main()
     std::complex<double> cForJ(-0.64, 0.39);
     if (start)
     {
+        system("cls"); //for linux and macos - system("clear");
         std::cout << "Генератор фракталов\n";
         std::cout << "Максимум итераций (меньше - лучше производительность, но хуже точность и ярче градиент): ";
         std::cin >> MaxIt;
         std::cout << "Доступные фракталы:\n";
         std::cout << "Множество Мондельброта: 0\n";
         std::cout << "Множество Жюлиа: 1\n";
+        invalidRequest:
         std::cout << "Выберите множество: ";
         std::cin >> m;
+        if( m >= 2) {
+            std::cout << "Введите одно из доступных множеств\n";
+            system("cls"); //for linux and macos - system("clear");
+            goto invalidRequest;
+        }
         std::cout << "Управление\nСтрелочки: перемещение\nЛевый Shift: увеличение\nЛевый Alt: уменьшение\nU: обновить экран\n";
         std::cout << "Программа сделана в рамках проектной деятельности\nШкола №1580, 2024 г.";
+        
         
         
     }
